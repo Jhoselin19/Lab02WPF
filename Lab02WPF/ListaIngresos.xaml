@@ -1,0 +1,28 @@
+﻿<Window x:Class="Lab02WPF.ListaIngresos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab02WPF"
+        mc:Ignorable="d"
+        Title="ListaIngresos" Height="450" Width="800">
+    <Grid>
+        <Grid.Resources>
+            <CollectionViewSource x:Key="IngresosViewSource" Source="{Binding Ingresos}" />
+        </Grid.Resources>
+
+        <StackPanel Orientation="Vertical" Margin="0,-1,0,21">
+            <TextBlock Text="Conductor" Margin="0,10,0,10" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtNombreConductor" Margin="0,10,0,10"/>
+            <TextBlock Text="Placa" Margin="0,10,0,10" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtPlaca" Margin="0,10,0,10"/>
+            <TextBlock Text="Producto" Margin="0,10,0,10" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtProducto" Margin="0,10,0,10" />
+            <Button Content="Filtrar" Click="BtnFiltrar_Click" Width="200" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+
+        </StackPanel>
+
+        <DataGrid x:Name="dataGridIngresos" AutoGenerateColumns="True" ItemsSource="{Binding Source={StaticResource IngresosViewSource}}" Margin="0,243,0,0" />
+
+    </Grid>
+</Window>
